@@ -2,7 +2,8 @@ import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../Components.js/OAuth";
-
+import { signInWithEmailAndPassword,getAuth} from "firebase/auth";
+import {toast} from "react-toastify"
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -18,6 +19,21 @@ export default function SignIn() {
     }));
   }
 
+  const handelSubmit = async(e)=>{
+    e.preventDefault()
+   try {
+
+    const auth = getAuth()
+    const userCredential =await
+    signInWithEmailAndPassword(auth,email,password)
+    if(userCredential.user){
+      navigate("/")
+    }
+   } catch (error) {
+    toast.error("Bad User Credentials")
+   }
+  }
+
   return (
     <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Sign In</h1>
@@ -30,7 +46,7 @@ export default function SignIn() {
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-          <form >
+          <form  onSubmit={handelSubmit}>
             <input
               type="email"
               id="email"
