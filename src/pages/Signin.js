@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../Components.js/OAuth";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -87,7 +88,7 @@ export default function SignIn() {
             <div className="flex items-center  my-4 before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300">
               <p className="text-center font-semibold mx-4">OR</p>
             </div>
-           
+           <OAuth/>
           </form>
         </div>
       </div>
