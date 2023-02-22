@@ -17,15 +17,14 @@ const  App =() => {
       <Header />
 <Routes>
 <Route path ="/" element={<Home/>}/>
-<Route path="/profile" element={<PrivateRoute/>}> 
-<Route path ="/Profile" element={<Profile/>}/> 
-
-</Route>
-
+<Route path="/profile" element={<PrivateRoute />}>
+<Route path="/profile" element={<Profile />} />
+  </Route>
+<Route path ="/Sign-in" element={<Signin/>}/> 
 <Route path ="/forgot-password" element={<ForgotPassword/>}/> 
 <Route path ="/Sign-up" element={<Signup/>}/> 
 <Route path ="/Offers" element={<Offers/>}/> 
-<Route path ="/Sign-in" element={<Signin/>}/> 
+
 
 </Routes>
 
