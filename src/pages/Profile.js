@@ -32,6 +32,7 @@ setFormData((prev)=>({
   [e.target.id]:e.target.value
 }))
   }
+  
  const onsubmit =async()=>{
   try {
     if(auth.currentUser.displayName!== name){
